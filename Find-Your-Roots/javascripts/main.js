@@ -1,1 +1,3 @@
-alert("Hello!");
+function myFunction(x) {
+    x.classList.toggle("change");
+  }
