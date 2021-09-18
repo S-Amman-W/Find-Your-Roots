@@ -8,13 +8,11 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    age: {
-        type: Number,
-        required: true
-    },
-    occupation: {
-        type: String,
-    },
+    password: {
+        type: String, 
+        required: true,
+        id: ObjectId
+    }
 
 })
 
