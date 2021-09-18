@@ -14,6 +14,9 @@ app.use('/moments', momentsRoute);
 const userRoute = require('./routes/user');
 app.use('/user', userRoute);
 
+const memberRoute = require('./routes/family-member');
+app.use('/family-member', memberRoute)
+
 // ROUTES here
 app.get('/', (req,res) => {
     res.send('This is the home page');
