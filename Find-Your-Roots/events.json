@@ -1,0 +1,16 @@
+{
+    "events": [
+        {
+            "title": "Picnic at Bayfront",
+            "location": "Bayfront",
+            "time": "09:00 pm",
+            "bring": "Anything You Want!!!"
+        },
+        {
+            "title": "Laser Tag",
+            "location": "Lazer Mania across City Hall",
+            "time": "10:00 am",
+            "bring": "All your Strength"
+        }
+    ]
+}

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Find-Your-Roots</title>
+        <title>Find-Your-Roots: Events</title>
         <link rel="stylesheet" href="stylesheets/main.css">
         <script src="javascripts/main.js"></script>
-        <script> //just put this on js file (more clean) (this is how you comment on js)
-            alert("AAAAAAAAAHHHHHH");
-        </script>
         <style>
             /*
             this is how you comment in css
@@ -20,88 +17,50 @@
         </div>
 
     <body>
+        <h1>Events Section</h1>
         <h1>
 
-            <img src="Logo Draft.png">
-
-
+            <img src="Logo Draft.png"/>
 
         </h1>
-        <h3>
-            <form action="/createaccsite.html"> <!-- Link to another page!!!! (this is how you write comments btw in html) --> 
-                <button>
-                    <img src="NewAccDraft.png">
-                </button>
-
-            </form>
-
-
-
-        </h3>
-
-        <h2>
-            Family is everything. So we reinvented the way families can be together. Simple as that.
-
-
-        
-
-
-
-        </h2>
-
-
-
-
-        <p>
-
-
-
-            Whether you're a student in college, a parent working a full-time job, or a grandparent taking care of the house, you know you could've spent more time with your relatives. However, with all the lemons that life throws at you, and not all the time, it's difficult to make schedule for your family. That's why we created this website.
-
-
-
-
-
-        </p>
-        <h2>
-            It's simple!
-        
-
-        </h2>
-        <p>
-            Just create this
-
-
-
-
-
-        </p>
-        // show image or gif
-        <p>
-            Then do that
-
-
-
-
-
-        </p>
-        // show image or gif
-        <p>
-            And we're all set! Thanks for scrolling all the way down!
-
-
-
-        </p>
-
-
+        <div id='debug' class='float-container'></div>
+        <p id='demo'></p>
+        <script>
+            fetch("events.json")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.events.length)
+                    for(i = 0; i < data.events.length; i++){
+                        var div = document.createElement("div");
+                        div.setAttribute("id", "card")
+                        div.setAttribute("class", "float-child")
+                        var h1 = document.createElement("h1");
+                        var node1 = document.createTextNode(data.events[i].title)
+                        h1.appendChild(node1)
+                        var p1 = document.createElement("p");
+                        var node2 = document.createTextNode("Location: " + data.events[i].location)
+                        p1.appendChild(node2)
+                        var p2 = document.createElement("p");
+                        var node3 = document.createTextNode("Time: " + data.events[i].time)
+                        p2.appendChild(node3)
+                        var p3 = document.createElement("p");
+                        var node4 = document.createTextNode("Things to Bring: " + data.events[i].bring)
+                        p3.appendChild(node4)
+                        div.appendChild(h1)
+                        div.appendChild(p1)
+                        div.appendChild(p2)
+                        div.appendChild(p3)
+                        document.querySelector("#debug").appendChild(div)
+                    }
+                    /*document.querySelector("#debug"). = 
+                        "Name: " + data.name + 
+                        "\n\nCountry of Birth: " + data.cob + 
+                        "\n\nDate of Birth: " + data.dob + 
+                        "\n\nContacts: " + data.contacts + 
+                        "\n\nOccupation: " + data.occupation + 
+                        "\n\nInterests: " + data.interests */
+                })
+        </script>
     </body>
-
-
-
-
-
-
-
-
 
 </html>
