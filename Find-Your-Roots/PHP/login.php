@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 <div class="container">
     <div class="col-md-12">
         <h2>Login</h2>
-        <p>Welcome back. Please sign in.</p>
+        <p>Welcome, please sign in.</p>
         <form action="" method="post">
             <div class="form-group">
                 <label>Email address:</label>
