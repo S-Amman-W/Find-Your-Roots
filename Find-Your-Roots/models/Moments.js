@@ -16,9 +16,9 @@ const MomentsSchema = mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now
-    },
+    }
 
-})
+});
 
 
 module.exports = mongoose.model('Moments', MomentsSchema);
