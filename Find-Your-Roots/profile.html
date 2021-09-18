@@ -9,6 +9,7 @@
         <a class="About" href="about.html">About</a>
         <a class="AccountandProfile" href="profile.html">Account/Profile</a>
         <a class="FamilyTree" href="familyTree.html">Family Tree</a>
+        <a class="Events" href="events.html">Events</a>
         <a class="SharedInterests" href="shareInterest.html">Shared Interests</a>
         <a class="Moments" href="moments.html">Moments</a>
         <a class="LoginLogout" href="logInOut.html">Login/Logout</a><br><br>
@@ -35,12 +36,16 @@
            <center> <img src="LogoPic-FYR.png"/></center>
 
         </h1>
-        <img src='userPhoto.png'>
-        <form action="/action_page.php">
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img" accept="image/*">
-            <input type="submit">
-          </form>
+        <img src='uploads/userPhoto.png' style="border-radius: 50%; height: 50px; width: 50px;">
+
+        <h5>Set / Change Profile Picture</h5>
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+        <p><strong>Information</strong></p>
+
         <div id='debug'></div>
         <p id='demo'></p>
         <script>
