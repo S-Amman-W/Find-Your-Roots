@@ -11,19 +11,40 @@
 
 
 
-
-    <div> <h3>Let's start by creating your username and profile.</h3> 
+<form action="" method="post"></form>
+    <div class="form-group"> <h3>Let's start by creating your username and profile.</h3> 
         <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br>
+        <input type="text" id="username" name="username" class="form-control" required><br>
 
     </div>
 
-    <div> <!-- password --> 
+    <div class="form-group"> <!-- email --> 
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"
+               class="form-control" required><br>
+
+    </div>
+
+    <div class="form-group"> <!-- password --> 
         <label for="pass">Password (8 characters minimum):</label><br>
         <input type="password" id="pass" name="password"
                minlength ="8" required><br>
 
     </div>
+
+    <div class="form-group"> <!-- confirm password --> 
+        <label>Confirm Password:</label><br>
+        <input type="password" id="confirm_pass" name="confirm_password"
+        class = "form-control" minlength ="8" required><br>
+
+    </div>
+    <!-- 
+    <div class="form-group">
+        <input type="submit" name="submit" class="btn btn-primary" value ="Submit">
+    </div> -->
+
+
+
 
     <div> <!-- first and last name --> 
         <h3>What is your name?</h3>
