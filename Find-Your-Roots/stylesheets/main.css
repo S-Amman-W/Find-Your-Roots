@@ -1,5 +1,4 @@
 body{
-<<<<<<< HEAD
     background: lightgreen
 }
 
@@ -7,6 +6,33 @@ body{
     color: rgb(56, 52, 52)
 }
 
+.topnav {
+    background-color: rgb(255, 255, 255);
+    overflow: visible;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .container a {
+    float: left;
+    color: #3d3a3a;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .container a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .container a:active {
+    background-color: #aa3904;
+    color: white;
+  }
+  
 #card {
   border-radius: 25px;
   border: 2px solid;
@@ -18,10 +44,6 @@ body{
   margin-right: 10px;
   margin-bottom: 10px;
   float: left;
-=======
-    background: lightgreen;
-    color: black;
->>>>>>> 31bdaeca66483166b8a2f9d72f2d9efc57af6ec2
 }
 
 .header {
