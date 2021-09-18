@@ -14,7 +14,7 @@
 
     <div> <h3>Let's start by creating your username and profile.</h3> 
         <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
+        <input type="text" id="username" name="username" required><br>
 
     </div>
 
@@ -28,14 +28,14 @@
     <div> <!-- first and last name --> 
         <h3>What is your name?</h3>
         <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
+        <input type="text" id="fname" name="fname" required><br>
 
         <label for="mname">Middle name:</label><br>
         <input type="text" id="mname" name="mname"><br>
 
 
         <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname"><br>
+        <input type="text" id="lname" name="lname" required><br>
 
 
     </div>
@@ -94,9 +94,53 @@
     <label for="socialmedia">Social Media (List "Name of social media, username"):</label>
     <input type="text" id="socialmedia" name="socialmedia"><br>
 
+    <label for="Facebook">Facebook (link):</label>
+    <input type="url" id="facebook" name="facebook"><br>
+
+    <label for="Instagram">Instagram (link):</label>
+    <input type="url" id="instagram" name="instagram"><br>
+
+    <label for="Twitter">Twitter (link):</label>
+    <input type="url" id="twitter" name="twitter"><br>
+
+    <label for="WeChat">WeChat (link):</label>
+    <input type="url" id="wechat" name="wechat"><br>
+
+    <label for="socialmedia">Other Social Media (List "Name of social media, username"):</label>
+    <input type="text" id="socialmedia" name="socialmedia"><br>
+
+
         </form>
 
+        <form>
+            <h3>Myers Briggs Personality Type</h3>
 
+            <div> 
+				<label>Choose your type:</label>
+				<select name="pesonality">
+				<option value='INFJ'>INFJ - Advocate</option>
+				<option value='INFP'>INFP - Mediator</option>
+                <option value='ENFJ'>ENFJ - Protagonist</option>
+                <option value='ENFP'>ENFP - Campaigner</option>
+                <option value='ISTJ'>ISTJ - Logistician</option>
+                <option value='ISFJ'>ISFJ - Defender</option>
+                <option value='ESTJ'>ESTJ - Executive</option>
+                <option value='ESFJ'>ESFJ - Consul</option>
+                <option value='ISTP'>ISTP - Virtuoso</option>
+                <option value='ISFP'>ISFP - Adventurer</option>
+                <option value='ESTP'>ESTP - Entrepreneur</option>
+                <option value='ESFP'>ESFP - Entertainer</option>
+                <option value='INTJ'>INTJ - Architect</option>
+                <option value='INTP'>INTP - Logician</option>
+                <option value='ENTJ'>ENTJ - Commander</option>
+                <option value='ENTP'>ENTP - Debater</option>
+
+				</select>
+			</div>
+
+            <p>Not sure what this is? Click <a href="https://www.16personalities.com/personality-types">here</a> to take the free test.</p>
+
+        </form>
 
         <form>
             <h3>Brief Description/Fun Facts </h3>
@@ -111,10 +155,11 @@
 
         <form>
             <h3>Jobs</h3>
-            <label for="job">List all your occupations. Separate them with commas. </label><br>
+            <label for="job">List your occupation(s). If there's more than one, separate it with commas. </label><br>
         <input type="text" id="job" name="job"><br>
 
         </form>
+
 
         <form>
             <h3>Other Information </h3>
@@ -123,18 +168,10 @@
 
             <textarea id="otherinfo" name="otherinfo" rows="4" cols="50"></textarea>
 
-
-
         </form>
 
 
         <input type="submit"> <!-- code this button stuff that stores all this into data and makes tree etc. or something -->
-
-        
-
-
-
-        Myers Briggs Personality - Not sure how to add that tbh
 
 
 
