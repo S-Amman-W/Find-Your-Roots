@@ -21,3 +21,6 @@ app.get('/personality-test', (req,res) => {
 app.listen(3000);
 
 //Connect to database
+mongoose.connect('mongodb+srv://j6kao:vincentwan4@cluster0.6suns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', () => 
+    console.log('connected to databse????')
+);
