@@ -1,11 +1,16 @@
 body{
     background: lightgreen
+
+    
+
+
 }
 
 body{
     color: rgb(56, 52, 52)
 }
 
+/* Add a black background color to the top navigation */
 .topnav {
     background-color: rgb(255, 255, 255);
     overflow: visible;
