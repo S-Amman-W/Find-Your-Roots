@@ -12,10 +12,6 @@ router.get('/', async (req,res) => {
     }
 });
 
-/*
-router.get('/special', (req,res) => {
-    res.send('We are on a special moment!');
-}); */
 
 //Submits a moment
 router.post('/', async (req,res) => {
