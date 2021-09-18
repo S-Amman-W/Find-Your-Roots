@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv/config');
 
 // Middlewares  - functions that run when we hit a route
-// app.use
+app.use(bodyParser.json());
 
 // import routes
 const momentsRoute = require('./routes/moments');

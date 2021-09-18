@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //schema
 
-const MomentsSchema = mongoost.Schema({
+const MomentsSchema = mongoose.Schema({
     //properties
     title: {
         type: String,
@@ -13,9 +13,12 @@ const MomentsSchema = mongoost.Schema({
         required: true
     },
     date: {
-        type: String,
+        type: Date,
         required: true,
         default: Date.now
     },
 
 })
+
+
+module.exports = mongoose.model('Moments', MomentsSchema);
