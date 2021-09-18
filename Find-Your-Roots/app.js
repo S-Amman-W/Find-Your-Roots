@@ -1,6 +1,6 @@
 const express = require('express');
-
 const app = express();
+const mongoose = require('mongoose');
 
 // Middlewares  - functions that run when we hit a route
 // app.use
@@ -19,3 +19,5 @@ app.get('/personality-test', (req,res) => {
 
 //listen to the server
 app.listen(3000);
+
+//Connect to database
