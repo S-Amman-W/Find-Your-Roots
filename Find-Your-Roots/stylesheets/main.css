@@ -59,6 +59,8 @@ img {
       max-width: 100%;
       height: auto;
       width: auto\9;
+      border: 5px solid black;
+  border-radius: 40px;
 }
 
 button {
