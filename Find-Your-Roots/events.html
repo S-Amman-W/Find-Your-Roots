@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Find-Your-Roots: Events</title>
+        <link rel="stylesheet" href="stylesheets/main.css">
+        <script src="javascripts/main.js"></script>
+        <style>
+            /*
+            this is how you comment in css
+            */
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Find-Your-Roots</h1>
+            <p>A personalized family-tree building software to strengthen precious family bonds.</p>
+        </div>
+
+    <body>
+        <h1>Events Section</h1>
+        <h1>
+
+            <img src="Logo Draft.png"/>
+
+        </h1>
+        <div id='debug' class='float-container'></div>
+        <p id='demo'></p>
+        <script>
+            fetch("events.json")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.events.length)
+                    for(i = 0; i < data.events.length; i++){
+                        var div = document.createElement("div");
+                        div.setAttribute("id", "card")
+                        div.setAttribute("class", "float-child")
+                        var h1 = document.createElement("h1");
+                        var node1 = document.createTextNode(data.events[i].title)
+                        h1.appendChild(node1)
+                        var p1 = document.createElement("p");
+                        var node2 = document.createTextNode("Location: " + data.events[i].location)
+                        p1.appendChild(node2)
+                        var p2 = document.createElement("p");
+                        var node3 = document.createTextNode("Time: " + data.events[i].time)
+                        p2.appendChild(node3)
+                        var p3 = document.createElement("p");
+                        var node4 = document.createTextNode("Things to Bring: " + data.events[i].bring)
+                        p3.appendChild(node4)
+                        div.appendChild(h1)
+                        div.appendChild(p1)
+                        div.appendChild(p2)
+                        div.appendChild(p3)
+                        document.querySelector("#debug").appendChild(div)
+                    }
+                    /*document.querySelector("#debug"). = 
+                        "Name: " + data.name + 
+                        "\n\nCountry of Birth: " + data.cob + 
+                        "\n\nDate of Birth: " + data.dob + 
+                        "\n\nContacts: " + data.contacts + 
+                        "\n\nOccupation: " + data.occupation + 
+                        "\n\nInterests: " + data.interests */
+                })
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Find-Your-Roots: Profile</title>
+        <link rel="stylesheet" href="stylesheets/main.css">
+        <script src="javascripts/main.js"></script>
+        <style>
+            /*
+            this is how you comment in css
+            */
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Find-Your-Roots</h1>
+            <p>A personalized family-tree building software to strengthen precious family bonds.</p>
+        </div>
+
+    <body>
+        <h1>Profile Section</h1>
+        <h1>
+
+            <img src="Logo Draft.png"/>
+
+        </h1>
+        <div id='debug'></div>
+        <p id='demo'></p>
+        <script>
+            fetch("info.json")
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector("#debug").innerText = 
+                        "Name: " + data.name + 
+                        "\n\nCountry of Birth: " + data.cob + 
+                        "\n\nDate of Birth: " + data.dob + 
+                        "\n\nContacts: " + data.contacts + 
+                        "\n\nOccupation: " + data.occupation + 
+                        "\n\nInterests: " + data.interests
+                })
+        </script>
+    </body>
+
+
+
+
+
+
+
+
+
+</html>
