@@ -17,9 +17,8 @@ if(isset($_POST["submit"])) {
 }
 
 // Check if file already exists
-if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
-  $uploadOk = 0;
+if (file_exists("uploads/userPhoto.png")) {
+  unlink("uploads/userPhoto.png");
 }
 
 // Check file size
@@ -41,9 +40,10 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    header("Location: profile.html");
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+rename($target_file, "uploads/userPhoto.png")
 ?>
