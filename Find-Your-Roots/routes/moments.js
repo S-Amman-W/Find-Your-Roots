@@ -33,5 +33,37 @@ router.post('/', async (req,res) => {
     }
 });
 
+// find a specific moment
+router.get('/:postId', async (req,res) => {
+    try {
+        const moment = await Moment.findById(req.params.postId);
+        res.json(moment);
+    } catch (err) {
+        res.json({message: err});
+    }
+});
+
+// delete a moment
+router.delete('/:postId', async (req,res) => {
+    try {
+        const removedMoment =  await Moment.remove({  _id: req.params.postId });
+        res.json(removedMoment);
+    } catch (err) {
+        res.json({message: err});
+    }
+   
+});
+
+// update a moment
+router.patch('/:postId', async (req,res) => {
+    try {
+        const updateMoment =  await Moment.updateOne({  _id: req.params.postId }, 
+            {$set : {title: req.body.title}});
+        res.json(updateMoment);
+    } catch (err) {
+        res.json({message: err});
+    }
+   
+});
 
 module.exports = router;
