@@ -38,16 +38,18 @@
         <div id='debug'></div>
         <script>
             var yourInterests = [];
+
             fetch("info.json")
                 .then(response => response.json())
                 .then(data => {
                     yourInterests = data.interests;
+                    console.log(data)
             })
 
             fetch("familyMemberInfo.json")
                 .then(response => response.json())
                 .then(data => {
-
+                    console.log(data)
                     for(i = 0; i < data.members.length; i++){
                         
                         var div = document.createElement("div");
