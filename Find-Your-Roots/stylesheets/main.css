@@ -58,11 +58,16 @@ body{
 img {
       max-width: 100%;
       height: auto;
-      width: auto\9;
+      width: auto/9;
 }
 
 button {
  padding: 0;
  border: none;
  background: none;
+ width: 200px;
+}
+
+h2 {
+  text-align:center
 }
