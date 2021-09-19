@@ -48,17 +48,11 @@
 
 
             <script src="https://balkan.app/js/OrgChart.js"></script>
-            <input type='button' onclick='myFunction()' id='insertMember' value='Insert Family Member'  style='margin: 10px;'>
+            <input type='button' onclick='myFunction()' id='insertMember' value='Insert Family Member'>
             <div id = 'addEvents' style='display: none;'>
-<<<<<<< HEAD
                 <label for='id' style='margin: 10px;'>ID (Pick Newest ID): </label>
-                <input type='text' id='id' name='id' style='margin: 10px; border-radius: 5px;'><br>
-                <label for='pid'>Parent 1 (If Main Branch) / Spouce ID:</label>
-=======
-                <label for='id'>ID (Pick Newest ID): </label>
                 <input type='text' id='id' name='id'><br>
-                <label for='pid'>Parent 1 (If Main Branch) / Spouse ID:</label>
->>>>>>> 274d6c61ca602638f4da43ce1cec59d92c3b2180
+                <label for='pid'>Parent 1 (If Main Branch) / Spouce ID:</label>
                 <input type='text' id='pid' name='pid'><br>
                 <label for='ppid'>Parent 2 (If Main Branch): </label>
                 <input type='text' id='ppid' name='ppid'><br>
@@ -139,7 +133,7 @@
                     // Save allEntries back to local storage
                     existingEntries.push(entry);
                     localStorage.setItem("setMembers", JSON.stringify(existingEntries));
-                    window.location.href = 'http://localhost/Find-Your-Roots/familyTree.html';
+                    window.location.href = 'http://localhost/familyTree.html';
 
                 }
 
