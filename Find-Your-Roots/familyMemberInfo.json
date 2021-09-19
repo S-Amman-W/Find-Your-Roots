@@ -1,0 +1,29 @@
+{
+    "members":[
+        {
+            "name": "Naruto",
+            "age": "18",
+            "interests":["Running", "Biking", "Movies"]
+        },
+        {
+            "name": "Boruto",
+            "age": "5",
+            "interests":["Music", "Fighting", "Talking"]
+        },
+        {
+            "name": "John Doe",
+            "age": "100",
+            "interests":["Nothing", "Nothing", "Nothing"]
+        },
+        {
+            "name": "Goku",
+            "age": "10096",
+            "interests":["Fighting", "Flying", "Sleeping"]
+        },
+        {
+            "name": "Greg Heffley",
+            "age": "15",
+            "interests":["Bullying", "Movies", "Eating"]
+        }
+    ]
+}

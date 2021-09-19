@@ -13,7 +13,8 @@
         <a class="Events" href="events.html">Events</a>
         <a class="SharedInterests" href="shareInterest.html">Shared Interests</a>
         <a class="Moments" href="moments.html">Moments</a>
-        <a class="LoginLogout" href="logInOut.html">Login/Logout</a><br><br>
+        <a class="LoginLogout" href="logInOut.html">Login/Logout</a>
+        <img src="LogoPic-FYR.png" align="right" style="height: 135px; width: 150px;" /><br><br>
 
 
     <head>
@@ -33,90 +34,50 @@
         <div class="header">
             <h1><center>Find-Your-Roots: Shared Interests</center></h1>
          </div>
+         
+        <div id='debug'></div>
+        <script>
+            var yourInterests = [];
+            fetch("info.json")
+                .then(response => response.json())
+                .then(data => {
+                    yourInterests = data.interests;
+            })
 
-    <body>
-        <h1>
+            fetch("familyMemberInfo.json")
+                .then(response => response.json())
+                .then(data => {
 
-            <center><img src="LogoPic-FYR.png"></center>
+                    for(i = 0; i < data.members.length; i++){
+                        
+                        var div = document.createElement("div");
+                        div.setAttribute("id", "card")
+                        div.setAttribute("class", "float-child")
+                        for (j=0; j < data.members[i].interests.length; j++){
+                            for (k=0; k < yourInterests.length; k++){
+                                if (yourInterests[k] === data.members[i].interests[j]){
+                                    if (div.firstChild){
+                                        var p = document.createElement("p");
+                                        var node = document.createTextNode(data.members[i].interests[j] + " ");
+                                        p.appendChild(node);
+                                        div.appendChild(p)
+                                    } else {
+                                        h1 = document.createElement("h1");
+                                        var node1 = document.createTextNode(data.members[i].name + ": ")
+                                        h1.appendChild(node1);
+                                        div.appendChild(h1);
+                                        var p = document.createElement("p");
+                                        var node = document.createTextNode(data.members[i].interests[j] + " ");
+                                        p.appendChild(node);
+                                        div.appendChild(p);
+                                    }
+                                };
+                            };
+                        };
 
-
-
-        </h1>
-        <h3>
-            <form action="/createaccsite.html"> <!-- Link to another page!!!! (this is how you write comments btw in html) --> 
-                <button>
-                    <img src="NewAccDraft.png">
-                </button>
-
-            </form>
-
-
-
-        </h3>
-
-        <h2>
-            Family is everything. So we reinvented the way families can be together. Simple as that.
-
-
-        
-
-
-
-        </h2>
-
-
-
-
-        <p>
-
-
-
-            Whether you're a student in college, a parent working a full-time job, or a grandparent taking care of the house, you know you could've spent more time with your relatives. However, with all the lemons that life throws at you, and not all the time, it's difficult to make schedule for your family. That's why we created this website.
-
-
-
-
-
-        </p>
-        <h2>
-            It's simple!
-        
-
-        </h2>
-        <p>
-            Just create this
-
-
-
-
-
-        </p>
-        // show image or gif
-        <p>
-            Then do that
-
-
-
-
-
-        </p>
-        // show image or gif
-        <p>
-            And we're all set! Thanks for scrolling all the way down!
-
-
-
-        </p>
-
-
+                        if(div.firstChild){document.querySelector("#debug").appendChild(div)}; 
+                    }
+                })
+        </script>
     </body>
-
-
-
-
-
-
-
-
-
 </html>

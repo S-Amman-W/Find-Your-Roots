@@ -4,5 +4,5 @@
     "dob": "01/02/1567",
     "contacts": "+12345678900, Insta + Snap",
     "occupation": "Tony Stark's assistant",
-    "interests": "I like painting Bob Ross"
+    "interests": ["Movies", "Fighting", "Music", "Eating"]
 }
