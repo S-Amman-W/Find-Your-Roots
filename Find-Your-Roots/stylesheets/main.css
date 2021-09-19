@@ -22,13 +22,13 @@ body{
   
   /* Change the color of links on hover */
   .container a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #8f3805;
+    color: white;
   }
   
   /* Add a color to the active/current link */
   .container a:active {
-    background-color: #aa3904;
+    background-color: #ddd;
     color: white;
   }
   
