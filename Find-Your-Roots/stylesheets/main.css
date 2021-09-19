@@ -22,13 +22,13 @@ body{
   
   /* Change the color of links on hover */
   .container a:hover {
-    background-color: #8f3805;
+    background-color: darkgoldenrod;
     color: white;
   }
   
   /* Add a color to the active/current link */
   .container a:active {
-    background-color: #ddd;
+    background-color: olive;
     color: white;
   }
   
@@ -50,16 +50,35 @@ body{
     padding-top: 1px;
     padding-bottom: 5px;
     padding-left: 10px;
-    background: #8f3805;
+    background: darkgoldenrod;
     color: white;
     font-size: 15px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
+
+  .row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 33.33%;
+    padding: 5px;
+  }
+
 img {
-      max-width: 100%;
-      height: auto;
-      width: auto/9;
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+     
+}
+
+.profileimg {
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+  border: 10px white;
+  border-radius: 40px;
 }
 
 button {
