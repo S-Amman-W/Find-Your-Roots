@@ -42,10 +42,95 @@
 
 
             <script src="https://balkan.app/js/OrgChart.js"></script>
+            <input type='button' onclick='myFunction()' id='insertMember' value='Insert Family Member'>
+            <div id = 'addEvents' style='display: none;'>
+                <label for='id'>ID (Pick Newest ID): </label>
+                <input type='text' id='id' name='id'><br>
+                <label for='pid'>Parent 1 (If Main Branch) / Spouce ID:</label>
+                <input type='text' id='pid' name='pid'><br>
+                <label for='ppid'>Parent 2 (If Main Branch): </label>
+                <input type='text' id='ppid' name='ppid'><br>
+                <label for='tags'>Added w/ Partner?:</label>
+                <input type='text' id='tags' name='tags'><br>
+                <label for='name'>Name of Family Member:</label>
+                <input type='text' id='name' name='name'><br>
+                <label for='title'>Title of Family Member:</label>
+                <input type='text' id='title' name='title'><br>
+                <label for='img'>Link of Member Photo:</label>
+                <input type='text' id='img' name='img'><br>
+                <input type='submit' onclick='mySubmit()' value='Submit' id='submit'>
+            </div>
+            <div id="tree" style='float: right;'></div>
 
-            <div id="tree"></div>
-                <script>
-                
+            <script>
+                if (!localStorage.getItem("setMembers")){
+                    members = [          
+                            { id: 1, name: "King George VI", img: "https://cdn.balkan.app/shared/f1.png"},
+                            { id: 2, pid: 1, tags: ["partner"], name: "Queen Elizabeth", title: "The Queen Mother", img: "https://cdn.balkan.app/shared/f2.png" },
+                            { id: 3, pid: 1,  ppid: 2, name: "Queen Elizabeth II", img: "https://cdn.balkan.app/shared/f5.png"},
+                            { id: 4, pid: 3, tags: ["left-partner"], name: "Prince Philip", title: "Duke of Edinburgh", img: "https://cdn.balkan.app/shared/f3.png"},
+                            { id: 5, pid: 1, ppid: 2, name: "Princess Margaret", img: "https://cdn.balkan.app/shared/f6.png"},
+                            { id: 6, pid: 3, ppid: 4, name: "Charles", title: "Prince of Wales", img: "https://cdn.balkan.app/shared/f8.png"},
+                            { id: 7, pid: 6, tags: ["partner"] , name: "Diana", title: "Princess of Wales", img: "https://cdn.balkan.app/shared/f9.png"},
+                            { id: 8, pid: 6, tags: ["partner"], name: "Camila", title: "Duchess of Cornwall", img: "https://cdn.balkan.app/shared/f7.png" },
+                            { id: 9, pid: 3, ppid: 4 , name: "Anne", title: "Princess Royal", img: "https://cdn.balkan.app/shared/f10.png"},
+                            { id: 10, pid: 3, ppid: 4 , name: "Prince Andrew", title: "Duke of York", img: "https://cdn.balkan.app/shared/f11.png"},
+                            { id: 11, pid: 3, ppid: 4, name: "Prince Edward", title: "Earl of Wessex", img: "https://cdn.balkan.app/shared/f12.png"},
+                            { id: 12, pid: 6, ppid: 7, name: "Vincent W.", title: "Black Belt in Judo", img: "IMG_1648.jpg"},
+                            { id: 13, pid: 6, ppid: 7, name: "Prince Harry", img: "https://cdn.balkan.app/shared/f15.png"},
+                            { id: 14, pid: 12, tags: ["partner"], name: "Catherine", title: "Duchess of Cambridge", img: "https://cdn.balkan.app/shared/f13.png"},
+                            { id: 15, pid: 13, tags: ["partner"], name: "Meghan Markle", img: "https://cdn.balkan.app/shared/f16.png"},
+                            { id: 16, pid: 12, ppid: 14, name: "Prince George of Cambridge", img: "https://cdn.balkan.app/shared/f17.png"},
+                            { id: 17, pid: 12, ppid: 14, name: "Prince Charlotte of Cambridge", img: "https://cdn.balkan.app/shared/f18.png"},
+                            { id: 18, pid: 12, ppid: 14, name: "Prince Louis of Cambridge", img: "https://cdn.balkan.app/shared/f19.png"},
+                            { id: 19, pid: 6, ppid: 7, name: "Pigeon of St.Louisberg", title:'Royal Hoot', img: "https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg"},
+                            { id: 20, pid: 6, ppid: 7, name: "Jon", img: "jonpic.png"},
+                        ];
+                    localStorage.setItem("setMembers", JSON.stringify(members));
+                }
+                function myFunction() {
+                    var x = document.getElementById("addEvents");
+                    var y = document.getElementById("addButton")
+                    if (x.style.display === 'none') {
+                        x.style.display = 'block';
+                        y.setAttribute(value, 'Add Events');
+                    } else {
+                        x.style.display = 'none';
+                        y.setAttribute(value, 'Don\'t Add Events');
+                    }
+                }
+                // localStorage.removeItem("setMembers");
+                // localStorage.removeItem("entry");
+                function mySubmit() {
+                    var title = document.getElementById('title').value;
+                    var name = document.getElementById('name').value;
+                    var id = document.getElementById('id').value;
+                    var pid = document.getElementById('pid').value;
+                    var ppid = document.getElementById('ppid').value;
+                    var img = document.getElementById('img').value;
+                    var tags = [];
+                    tags.push(document.getElementById('tags').value);
+
+                    var existingEntries = JSON.parse(localStorage.getItem("setMembers"));
+                    if(existingEntries == null) existingEntries = [];
+
+                    var entry = {
+                        "id": id,
+                        "pid": pid,
+                        "ppid": ppid,
+                        "tags": tags,
+                        "title": title,
+                        "img": img,
+                        "name": name
+                    };
+                    localStorage.setItem("entry", JSON.stringify(entry));
+                    // Save allEntries back to local storage
+                    existingEntries.push(entry);
+                    localStorage.setItem("setMembers", JSON.stringify(existingEntries));
+                    window.location.href = 'http://localhost/Find-Your-Roots/familyTree.html';
+
+                }
+
             window.onload = function () {
                 OrgChart.templates.family_template = Object.assign({}, OrgChart.templates.ana);
                 OrgChart.templates.family_template.size = [86, 86];
@@ -83,28 +168,7 @@
                     }
                 });
             
-                chart.load([          
-                        { id: 1, name: "King George VI", img: "https://cdn.balkan.app/shared/f1.png"},
-                        { id: 2, pid: 1, tags: ["partner"], name: "Queen Elizabeth", title: "The Queen Mother", img: "https://cdn.balkan.app/shared/f2.png" },
-                        { id: 3, pid: 1,  ppid: 2, name: "Queen Elizabeth II", img: "https://cdn.balkan.app/shared/f5.png"},
-                        { id: 4, pid: 3, tags: ["left-partner"], name: "Prince Philip", title: "Duke of Edinburgh", img: "https://cdn.balkan.app/shared/f3.png"},
-                        { id: 5, pid: 1, ppid: 2, name: "Princess Margaret", img: "https://cdn.balkan.app/shared/f6.png"},
-                        { id: 6, pid: 3, ppid: 4, name: "Charles", title: "Prince of Wales", img: "https://cdn.balkan.app/shared/f8.png"},
-                        { id: 7, pid: 6, tags: ["partner"] , name: "Diana", title: "Princess of Wales", img: "https://cdn.balkan.app/shared/f9.png"},
-                        { id: 8, pid: 6, tags: ["partner"], name: "Camila", title: "Duchess of Cornwall", img: "https://cdn.balkan.app/shared/f7.png" },
-                        { id: 9, pid: 3, ppid: 4 , name: "Anne", title: "Princess Royal", img: "https://cdn.balkan.app/shared/f10.png"},
-                        { id: 10, pid: 3, ppid: 4 , name: "Prince Andrew", title: "Duke of York", img: "https://cdn.balkan.app/shared/f11.png"},
-                        { id: 11, pid: 3, ppid: 4, name: "Prince Edward", title: "Earl of Wessex", img: "https://cdn.balkan.app/shared/f12.png"},
-                        { id: 12, pid: 6, ppid: 7, name: "Vincent W.", title: "Black Belt in Judo", img: "IMG_1648.jpg"},
-                        { id: 13, pid: 6, ppid: 7, name: "Prince Harry", img: "https://cdn.balkan.app/shared/f15.png"},
-                        { id: 14, pid: 12, tags: ["partner"], name: "Catherine", title: "Duchess of Cambridge", img: "https://cdn.balkan.app/shared/f13.png"},
-                        { id: 15, pid: 13, name: "Meghan Markle", img: "https://cdn.balkan.app/shared/f16.png"},
-                        { id: 16, pid: 12, ppid: 14, name: "Prince George of Cambridge", img: "https://cdn.balkan.app/shared/f17.png"},
-                        { id: 17, pid: 12, ppid: 14, name: "Prince Charlotte of Cambridge", img: "https://cdn.balkan.app/shared/f18.png"},
-                        { id: 18, pid: 12, ppid: 14, name: "Prince Louis of Cambridge", img: "https://cdn.balkan.app/shared/f19.png"},
-                        { id: 19, pid: 6, ppid: 7, name: "Pigeon of St.Louisberg", title:'Royal Hoot', img: "https://www.allaboutbirds.org/guide/assets/photo/308074031-480px.jpg"},
-                        { id: 20, pid: 15, tags: ["partner"], name: "Jon", img: "jonpic.png"},
-                    ]);
+                chart.load(JSON.parse(localStorage.getItem("setMembers")));
             };
                 </script>
                 <br><br><br><br><br><br><br><br><br>
