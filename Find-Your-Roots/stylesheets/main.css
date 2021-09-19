@@ -91,3 +91,13 @@ button {
 h2 {
   text-align:center
 }
+
+input {
+  padding: 10px;
+  border-radius: 25px;
+}
+
+label {
+  padding: 10px;
+  border-radius: 10px;
+}
